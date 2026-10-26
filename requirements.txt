@@ -1,0 +1,12 @@
+# Direct HDC runtime/test pins captured from the source interpreter.
+# Install the two CUDA packages separately using requirements-torch.txt first.
+numpy==1.26.4
+scipy==1.15.3
+scikit-learn==1.7.2
+pillow==12.2.0
+transformers==5.12.1
+torch-hd==5.8.4
+huggingface-hub==1.24.0
+safetensors==0.8.0
+pytest==9.1.1
+jsonschema==4.26.0

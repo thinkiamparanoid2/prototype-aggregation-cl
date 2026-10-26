@@ -1,0 +1,177 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "ssl-hdc-stream-spec-v1",
+  "title": "SSL-HDC preregistered continual stream specification",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "tag",
+    "smoke",
+    "execution",
+    "seeds",
+    "protocol",
+    "hdc",
+    "baseline",
+    "metrics"
+  ],
+  "properties": {
+    "schema_version": {"const": 1},
+    "tag": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]*$"},
+    "smoke": {"type": "boolean"},
+    "execution": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["device"],
+      "properties": {"device": {"enum": ["cpu", "cuda"]}}
+    },
+    "seeds": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["stream_order", "projection", "learner", "replay"],
+      "properties": {
+        "stream_order": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"type": "integer", "minimum": 0}
+        },
+        "projection": {"type": "integer", "minimum": 0},
+        "learner": {"type": "integer", "minimum": 0},
+        "replay": {"type": "integer", "minimum": 0}
+      }
+    },
+    "protocol": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "initially_known_classes",
+        "class_introductions",
+        "bootstrap",
+        "confidence_thresholds",
+        "label_budget",
+        "rolling_window"
+      ],
+      "properties": {
+        "initially_known_classes": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"type": "string", "minLength": 1}
+        },
+        "class_introductions": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["class_label", "at_step"],
+            "properties": {
+              "class_label": {"type": "string", "minLength": 1},
+              "at_step": {"type": "integer", "minimum": 0}
+            }
+          }
+        },
+        "bootstrap": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["counts_toward_budget"],
+          "properties": {
+            "confirmed_per_class": {"type": "integer", "minimum": 1},
+            "known_class_holdback_fraction": {"const": 0.25},
+            "held_back_image_ids_by_seed": {
+              "type": "object",
+              "propertyNames": {"pattern": "^[0-9]+$"},
+              "additionalProperties": {
+                "type": "array",
+                "uniqueItems": true,
+                "items": {"type": "string", "minLength": 1}
+              }
+            },
+            "counts_toward_budget": {"type": "boolean"}
+          },
+          "oneOf": [
+            {"required": ["confirmed_per_class"]},
+            {"required": ["known_class_holdback_fraction", "held_back_image_ids_by_seed"]}
+          ]
+        },
+        "confidence_thresholds": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"type": "number", "minimum": 0, "maximum": 2}
+        },
+        "label_budget": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["max_total_requests"],
+          "properties": {
+            "max_total_requests": {"type": "integer", "minimum": 0},
+            "count_low_confidence": {"const": true},
+            "count_novel_registration": {"const": true}
+          }
+        },
+        "rolling_window": {"type": "integer", "minimum": 1},
+        "stream_length": {"type": "integer", "minimum": 1}
+      }
+    },
+    "hdc": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["hypervector_dim"],
+      "properties": {"hypervector_dim": {"const": 10000}}
+    },
+    "baseline": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "head_type",
+        "hidden_dim",
+        "learning_rate",
+        "weight_decay",
+        "update_steps",
+        "ewc_lambda",
+        "ewc_decay",
+        "replay_buffer_size",
+        "replay_batch_size"
+      ],
+      "properties": {
+        "head_type": {"enum": ["linear", "mlp"]},
+        "hidden_dim": {"type": ["integer", "null"], "minimum": 1},
+        "learning_rate": {"type": "number", "exclusiveMinimum": 0},
+        "weight_decay": {"type": "number", "minimum": 0},
+        "update_steps": {"type": "integer", "minimum": 1},
+        "ewc_lambda": {"type": "number", "exclusiveMinimum": 0},
+        "ewc_decay": {"type": "number", "minimum": 0, "maximum": 1},
+        "replay_buffer_size": {"type": "integer", "minimum": 1},
+        "replay_batch_size": {"type": "integer", "minimum": 1}
+      },
+      "allOf": [
+        {
+          "if": {"properties": {"head_type": {"const": "linear"}}},
+          "then": {"properties": {"hidden_dim": {"type": "null"}}}
+        },
+        {
+          "if": {"properties": {"head_type": {"const": "mlp"}}},
+          "then": {"properties": {"hidden_dim": {"type": "integer", "minimum": 1}}}
+        }
+      ]
+    },
+    "metrics": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "stabilization_window",
+        "stabilization_min_accuracy",
+        "stabilization_consecutive_windows",
+        "ece_bins"
+      ],
+      "properties": {
+        "stabilization_window": {"type": "integer", "minimum": 1},
+        "stabilization_min_accuracy": {"type": "number", "minimum": 0, "maximum": 1},
+        "stabilization_consecutive_windows": {"type": "integer", "minimum": 1},
+        "ece_bins": {"type": "integer", "minimum": 2}
+      }
+    }
+  }
+}

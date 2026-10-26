@@ -1,0 +1,20 @@
+dataset|arm|hdc_exhaust|ncm_exhaust|ranpac_exhaust|hdc_novel_unreg|ncm_novel_unreg|ranpac_novel_unreg|latest_exhauster|f1_winner
+PlantDoc|frozen_vits16|208|221|183|1.2|1.0|2.0|ncm|ncm
+PlantDoc|frozen_vitb16|231|242|202|1.0|1.0|1.4|ncm|ncm
+PlantDoc|frozen_vitl16|259|266|232|1.0|1.0|1.0|ncm|hdc
+PlantDoc|adapted_vits16|209|224|186|1.2|1.0|2.0|ncm|ncm
+PlantDoc|adapted_vitb16|233|240|204|1.0|1.0|1.2|ncm|ncm
+PlantDoc|adapted_vitl16|261|268|239|1.0|1.0|1.0|ncm|hdc
+PlantWild|frozen_vits16|1344|1422|1199|9.0|8.8|10.0|ncm|ncm
+PlantWild|frozen_vitb16|1454|1541|1260|8.4|8.0|10.0|ncm|ncm
+PlantWild|frozen_vitl16|1525|1575|1298|8.0|7.4|10.0|ncm|ncm
+PlantWild|adapted_vits16|1203|1170|1117|10.0|10.8|11.0|hdc|hdc
+PlantWild|adapted_vitb16|1464|1476|1270|8.0|8.0|10.0|ncm|ncm
+PlantWild|adapted_vitl16|1416|1345|1261|9.0|9.0|10.0|hdc|ncm
+PlantVillage|frozen_vits16|4492|4091|3556|3.0|4.0|4.0|hdc|hdc
+PlantVillage|frozen_vitb16|4797|4461|3934|3.0|3.0|4.0|hdc|ncm
+PlantVillage|frozen_vitl16|5324|4754|4140|2.0|3.0|3.8|hdc|hdc
+PlantVillage|adapted_vits16|4902|4166|3754|3.0|3.4|4.0|hdc|hdc
+PlantVillage|adapted_vitb16|3732|3233|3214|4.0|5.0|5.0|hdc|hdc
+PlantVillage|adapted_vitl16|3565|3558|3558|4.0|4.0|4.0|hdc|ranpac
+AGREE 13/18

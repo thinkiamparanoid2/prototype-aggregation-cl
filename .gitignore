@@ -1,0 +1,50 @@
+# environments and caches
+.venv*/
+.hf_cache/
+.cache/
+__pycache__/
+.pytest_cache/
+*.py[cod]
+*.egg-info/
+.vscode/
+.idea/
+
+# secrets
+.env
+.env.*
+!.env.example
+*token*
+
+# raw data and model/embedding binaries (DACON terms: no redistribution)
+Data/*
+!Data/train.csv
+!Data/val.csv
+!Data/test.csv
+ssl_hdc_pilot/replication/data/
+*.npz
+*.npy
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.bin
+
+# bulk run outputs (kept locally; summaries are committed)
+ssl_hdc_pilot/results/*/
+!ssl_hdc_pilot/results/mechanism_ablation/
+ssl_hdc_pilot/results/mechanism_ablation/*/
+!ssl_hdc_pilot/results/mechanism_ablation/aggregate_*/
+!ssl_hdc_pilot/results/mechanism_ablation/streaming_median_fidelity/
+!ssl_hdc_pilot/results/replication/
+ssl_hdc_pilot/results/replication/*/
+!ssl_hdc_pilot/results/replication/comparison/
+!ssl_hdc_pilot/results/forgetting_grid_development/
+ssl_hdc_pilot/results/forgetting_grid_development/*/
+
+# OS / logs
+*.log
+*.tmp
+tmp*/
+Thumbs.db
+Desktop.ini
+.DS_Store
