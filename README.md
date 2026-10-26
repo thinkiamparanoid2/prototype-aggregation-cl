@@ -147,17 +147,8 @@ Analysis/             written analysis of the frozen vs adapted results
 ## Author and provenance
 
 Ishmam Rashid Bhuiyan, BRAC University. This repository is the HDC
-continual-learning strand of a four-person CSE400 thesis (2026), supervised by
-Dr. Amithabha Chakrabarty, Department of Computer Science and Engineering. The
-direction is set out in
-[Idea2](docs/still_exploring/rafsan/Idea2_HDC_Continual_Learning_Crop_Disease.md)
-and the work collected here is mine; my teammates' contributions sit in the
-thesis's other strands, which this repository does not cover.
+continual-learning
 
-It is a curated copy of the team's
-[`yes-yes-company/HDC`](https://github.com/yes-yes-company/HDC) repository at commit
-`4ab6518`, whose git history is attributed to a teammate's account because the
-work was committed from one shared team workstation.
 
 Left out: raw per-run outputs (about 1.3 GB), conversation logs and assistant
 working notes. Code, launchers, split manifests and summary results are
