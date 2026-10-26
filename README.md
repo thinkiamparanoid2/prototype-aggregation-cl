@@ -149,12 +149,9 @@ Analysis/             written analysis of the frozen vs adapted results
 BRAC University CSE400 thesis team, 2026, supervised by
 Dr. Amithabha Chakrabarty (Department of Computer Science and Engineering):
 
-- Abrar Masud
 - Ishmam Rashid Bhuiyan: proposed the HDC continual-learning direction
   ([Idea2](docs/still_exploring/rafsan/Idea2_HDC_Continual_Learning_Crop_Disease.md)),
   session-leakage audit, this curated release
-- Shafin Ahmed
-- Aswad Khan
 
 The work was shared, and most commits were made from one team workstation. This
 repository is a curated copy of the team's
