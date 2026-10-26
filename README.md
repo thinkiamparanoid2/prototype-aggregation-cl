@@ -84,17 +84,20 @@ measure it, and HDC's updates were slower than NCM's.
 Every DACON sample comes with the greenhouse sensor log recorded around it.
 Photos taken during one recording share that log, so they show the same plants
 under the same conditions. [`scripts/session_audit.py`](scripts/session_audit.py)
-keys each sample by its sensor log and counts how many evaluation samples share
-a session with training:
+keys each sample by its sensor log, counts how many evaluation samples share a
+session with training, and scores a no-learning baseline that predicts the
+majority training label of the sample's session:
 
-| Split | Samples | Share a session with train |
-|---|---|---|
-| `trusted_splits/val.csv` | 1,132 | 95.4% |
-| `trusted_splits/test.csv` | 1,132 | 95.6% |
+| Split | Samples | Share a session with train | Session-lookup accuracy |
+|---|---|---|---|
+| `trusted_splits/val.csv` | 1,132 | 94.7% | 90.4% |
+| `trusted_splits/test.csv` | 1,132 | 95.2% | 89.5% |
 
-(Recording-window key; the stricter exact-log key gives 94.7% and 95.2%.)
-Absolute scores are therefore optimistic. Comparisons between heads still hold,
-since every head sees the same split. A session-grouped split is the next step.
+(Exact sensor-log key. Keying by recording window instead gives 95.4% / 95.6%
+overlap.) The lookup baseline beats every head above on accuracy (0.67 to 0.85),
+so absolute scores here say little about generalization. Comparisons between
+heads still hold, since every head sees the same split. A session-grouped split
+is the next step.
 
 ## Reproduce
 
@@ -103,7 +106,7 @@ Python 3.12. Install CPU or CUDA PyTorch first, then:
 ```bash
 pip install -r requirements-torch.txt   # or a CPU build from download.pytorch.org
 pip install -r requirements.txt
-python -m pytest ssl_hdc_pilot/tests -q
+python -m pytest ssl_hdc_pilot/tests tests -q
 python scripts/make_tables.py           # results table above, from saved cells
 python scripts/session_audit.py overlap audit/session_keys.csv ssl_hdc_pilot/trusted_splits
 ```

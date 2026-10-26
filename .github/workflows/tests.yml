@@ -15,6 +15,6 @@ jobs:
           cache: pip
       - run: pip install torch torchvision --index-url https://download.pytorch.org/whl/cpu
       - run: pip install -r requirements.txt
-      - run: python -m pytest ssl_hdc_pilot/tests -q
+      - run: python -m pytest ssl_hdc_pilot/tests tests -q
       - run: python scripts/make_tables.py
       - run: python scripts/session_audit.py overlap audit/session_keys.csv ssl_hdc_pilot/trusted_splits
