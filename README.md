@@ -164,7 +164,8 @@ assistant working notes. Code, launchers, split manifests and summary results
 are unchanged. Added: `scripts/make_tables.py`, `scripts/session_audit.py`,
 `audit/session_keys.csv`, CI. In the tests, one stale assertion was updated, one
 hardcoded interpreter path became `sys.executable`, and tests that need the raw
-captures or the original workstation's `.venv-e1` now skip when those are absent.
+captures (in the v0.1.0 release), the original workstation's `.venv-e1`, or the
+`rtk` command wrapper the launchers call now skip when those are absent.
 
 Experiment code, tests and audit notes were developed with AI coding
 assistants under the team's direction. Every reported number comes from a saved

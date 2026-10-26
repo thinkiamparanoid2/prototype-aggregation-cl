@@ -3,6 +3,7 @@ from dataclasses import replace
 import json
 from pathlib import Path
 import os
+import shutil
 import subprocess
 import sys
 from types import SimpleNamespace
@@ -290,6 +291,7 @@ def test_overwolf_is_blocked_even_without_gpu_listing(monkeypatch, name):
 
 
 @pytest.mark.skipif(sys.platform != "win32", reason="real Windows PowerShell stderr behavior")
+@pytest.mark.skipif(shutil.which("rtk") is None, reason="launcher helper runs commands through the rtk CLI")
 @pytest.mark.parametrize("native_exit", [0, 9])
 def test_logged_native_stderr_is_complete_and_exit_checked(tmp_path, native_exit):
     # Extract the actual launcher helper, then invoke a harmless native stderr emitter.
