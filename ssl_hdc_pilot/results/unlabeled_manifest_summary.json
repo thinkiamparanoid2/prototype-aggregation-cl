@@ -1,0 +1,12 @@
+{
+  "train_folder_count": 51906,
+  "val_folder_count": 5193,
+  "val_overlap_count": 5193,
+  "val_is_duplicate_subset_of_train": true,
+  "trusted_folder_count": 5767,
+  "trusted_overlap_excluded_count": 0,
+  "manifest_count": 51906,
+  "reconciliation": "51906 train folders - 0 trusted overlaps = 51906 sanctioned images; 5193 val IDs are already inside train and are not added twice",
+  "labels_used": false,
+  "trusted_ids_present_in_manifest": false
+}

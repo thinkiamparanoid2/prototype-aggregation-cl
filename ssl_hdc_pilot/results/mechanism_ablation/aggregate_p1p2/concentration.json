@@ -1,0 +1,10 @@
+{
+  "arm": "adapted",
+  "classes_considered": 0,
+  "control_learners": [
+    "ncm",
+    "ranpac"
+  ],
+  "focus_learner": "hdc",
+  "status": "insufficient_cells"
+}

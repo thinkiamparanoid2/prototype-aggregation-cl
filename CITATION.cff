@@ -1,0 +1,28 @@
+cff-version: 1.2.0
+message: "If you use this code or these results, please cite it as below."
+title: "prototype-aggregation-cl: prototype aggregation rules for continual crop-disease learning"
+type: software
+license: MIT
+repository-code: "https://github.com/thinkiamparanoid2/prototype-aggregation-cl"
+date-released: 2026-10-26
+version: 0.1.0
+authors:
+  - given-names: Abrar
+    family-names: Masud
+    affiliation: BRAC University
+  - given-names: Ishmam Rashid
+    family-names: Bhuiyan
+    affiliation: BRAC University
+  - given-names: Shafin
+    family-names: Ahmed
+    affiliation: BRAC University
+  - given-names: Aswad
+    family-names: Khan
+    affiliation: BRAC University
+keywords:
+  - continual learning
+  - hyperdimensional computing
+  - prototype learning
+  - nearest class mean
+  - crop disease
+  - DINOv3

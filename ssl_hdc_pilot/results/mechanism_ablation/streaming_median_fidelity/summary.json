@@ -1,0 +1,53 @@
+{
+  "all_sanity_checks_passed": true,
+  "cell_count": 6,
+  "macro_f1_streaming_minus_exact": {
+    "max": -0.02621741093442642,
+    "median": -0.04444546746233341,
+    "min": -0.05037566909546887
+  },
+  "per_cell_sanity": [
+    {
+      "abs_diff": 0.0,
+      "cell": "2026-09-15_ablation_b400_p2_b_adapted_median_ncm_s0_t010_attempt01",
+      "passed": true
+    },
+    {
+      "abs_diff": 0.0,
+      "cell": "2026-09-15_ablation_b400_p2_b_adapted_median_ncm_s1_t010_attempt01",
+      "passed": true
+    },
+    {
+      "abs_diff": 0.0,
+      "cell": "2026-09-15_ablation_b400_p2_b_adapted_median_ncm_s2_t010_attempt01",
+      "passed": true
+    },
+    {
+      "abs_diff": 0.0,
+      "cell": "2026-09-15_ablation_b400_p2_l_adapted_median_ncm_s0_t010_attempt01",
+      "passed": true
+    },
+    {
+      "abs_diff": 0.0,
+      "cell": "2026-09-15_ablation_b400_p2_l_adapted_median_ncm_s1_t010_attempt01",
+      "passed": true
+    },
+    {
+      "abs_diff": 0.0,
+      "cell": "2026-09-15_ablation_b400_p2_l_adapted_median_ncm_s2_t010_attempt01",
+      "passed": true
+    }
+  ],
+  "prediction_agreement_rate": {
+    "median": 0.9288869257950529,
+    "min": 0.9178445229681979
+  },
+  "prototype_cosine_mean": {
+    "median": 0.9997438226352657,
+    "min": 0.9995514187547896
+  },
+  "streaming_bytes_over_exact_bytes_ratio": {
+    "max": 0.12210355718085106,
+    "median": 0.12176857084810874
+  }
+}
